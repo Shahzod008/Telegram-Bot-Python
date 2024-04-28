@@ -19,7 +19,11 @@ def chshoto(function_call, user_id):
     }
     if function_call.data in data_to_message:
         message = data_to_message[function_call.data]
-        bot.send_message(user_id, message, reply_markup=markup_back)
+        bot.send_message(
+            user_id,
+            message,
+            reply_markup=markup_back
+        )
 
     data_to_range = {
         "russki_jazik": 'russish',
@@ -36,7 +40,11 @@ def chshoto(function_call, user_id):
         adres = f'../source/{adr}'
         for filename in os.listdir(adres):
             bot.send_photo(user_id, open(os.path.join(adres, filename), 'rb'))
-        bot.send_message(user_id, vse, reply_markup=markup_back)
+        bot.send_message(
+            user_id,
+            vse,
+            reply_markup=markup_back
+        )
 
     if_elif_else = {
         "raspisanie": (vib_den, dni_ned),
@@ -46,4 +54,9 @@ def chshoto(function_call, user_id):
 
     if function_call.data in if_elif_else:
         text, markup = if_elif_else[function_call.data]
-        bot.send_message(user_id, text, reply_markup=markup)
+        bot.send_message(
+            user_id,
+            text,
+            reply_markup=markup
+        )
+
