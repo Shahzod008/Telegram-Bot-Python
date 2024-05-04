@@ -1,6 +1,6 @@
-from config import bot
 from knopki import markup_start
-from fun import chshoto
+from fun import handlers_fun
+from config import bot
 import wiki
 
 
@@ -22,7 +22,7 @@ def start(message):
 @bot.callback_query_handler(func=lambda call: True)
 def response(function_call):
     user_id = function_call.message.chat.id
-    chshoto(
+    handlers_fun(
         function_call,
         user_id
     )

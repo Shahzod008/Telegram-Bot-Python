@@ -1,5 +1,8 @@
 import wikipedia, re
+#Этот код скопирован с интернета
 wikipedia.set_lang("ru")
+
+
 def getwiki(s):
     try:
         ny = wikipedia.page(s)

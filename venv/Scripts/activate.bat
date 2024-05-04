@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\shakh\Telegram_TeleBot_Bot_Python\venv
+set VIRTUAL_ENV=C:\Users\shakh\Pycharm_Python_Projects\Telegram-Bot-Python\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

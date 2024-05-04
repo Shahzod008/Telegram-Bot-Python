@@ -1,26 +1,10 @@
-from telebot import types
-from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
+from telebot.types import (InlineKeyboardButton,
+                           InlineKeyboardMarkup)
 
 button_info_1 = {
     "Расписание": 'raspisanie',
     "Все каталоги": 'back',
 }
-
-markup_start = InlineKeyboardMarkup()
-for name, callback_data in button_info_1.items():
-    markup_start.add(
-        InlineKeyboardButton(
-            name,
-            callback_data=callback_data
-        )
-    )
-markup_start.add(
-    InlineKeyboardButton(
-        text="Если бот перестал работать напишите сюда",
-        url="https://t.me/Shahzod_01_01_01"
-    )
-)
-
 
 button_info_2 = {
     "Расписание": 'raspisanie',
@@ -32,22 +16,6 @@ button_info_2 = {
     "Календарь учебного года": 'kalendar'
 }
 
-markup_katalog = InlineKeyboardMarkup()
-for name, callback_data in button_info_2.items():
-    markup_katalog.add(
-        InlineKeyboardButton(
-            name,
-            callback_data=callback_data
-        )
-    )
-markup_katalog.add(
-    InlineKeyboardButton(
-        text="Если бот перестал работать напишите сюда",
-        url="https://t.me/Shahzod_01_01_01"
-    )
-)
-
-
 button_info_3 = {
     "Понедельник": "panidelnik",
     "Вторник": "vtornik",
@@ -56,16 +24,6 @@ button_info_3 = {
     "Пятница": "pjatniza",
     "Назад": "back"
 }
-
-dni_ned = InlineKeyboardMarkup()
-for name, callback_data in button_info_3.items():
-    dni_ned.add(
-        InlineKeyboardButton(
-            name,
-            callback_data=callback_data
-        )
-    )
-
 
 button_info_4 = {
     "Алгебра": "algebra",
@@ -76,21 +34,21 @@ button_info_4 = {
     "Назад": "back"
 }
 
+
+def mark(_object, _dict):
+    for name, callback_data in _dict.items():
+        _object.add(InlineKeyboardButton(name, callback_data=callback_data))
+
+
+markup_start = InlineKeyboardMarkup()
+markup_katalog = InlineKeyboardMarkup()
+dni_ned = InlineKeyboardMarkup()
 markup_pred = InlineKeyboardMarkup()
-for name, callback_data in button_info_4.items():
-    markup_pred.add(
-        InlineKeyboardButton(
-            name,
-            callback_data=callback_data
-        )
-    )
 
 
-markup_back = InlineKeyboardMarkup(
-    keyboard=[
-        [InlineKeyboardButton(
-            text="Назад",
-            callback_data='back'
-        )]
-    ]
-)
+mark(markup_start, button_info_1)
+mark(markup_katalog, button_info_2)
+mark(dni_ned, button_info_3)
+mark(markup_pred, button_info_4)
+
+markup_back = InlineKeyboardMarkup([[InlineKeyboardButton(text="Назад", callback_data='back')]])
